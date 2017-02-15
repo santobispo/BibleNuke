@@ -1,8 +1,3 @@
-/* ***
- *  So quero ver isso
- * /
- */
- 
 var json_sel_book = [
 	{"index": false, "name": false, "chapters": false, "chapter": false, "verses": false, "verse": false}
 	];
@@ -26,8 +21,7 @@ var json_language = [
 	];
 
 var sumary = [
-	[0,"G&ecirc;nesis",50],[1,"&ecirc;x
-	odo",40],[2,"Lev&iacute;tico",27],[3,"N&uacute;meros",36],[4,"Deuteron&ocirc;mio",34],[5,"Josu&eacute;",24],[6,"Ju&iacute;zes",21],[7,"Rute",4],[8,"1 Samuel",31],[9,"2 Samuel",24],[10,"1 Reis",22],[11,"2 Reis",25],[12,"1 Cr&ocirc;nicas",29],[13,"2 Cr&ocirc;nicas",36],[14,"Esdras",10],[15,"Neemias",13],[16,"Ester",10],[17,"J&oacute;",42],[18,"Salmos",150],[19,"Prov&eacute;rbios",31],[20,"Eclesiastes",12],[21,"Cânticos",8],[22,"Isa&iacute;as",66],[23,"Jeremias",52],[24,"Lamentaç&otilde;es de Jeremias",5],[25,"Ezequiel",48],[26,"Daniel",12],[27,"Os&eacute;ias",14],[28,"Joel",3],[29,"Am&oacute;s",9],[30,"Obadias",1],[31,"Jonas",4],[32,"Miqu&eacute;ias",7],[33,"Naum",3],[34,"Habacuque",3],[35,"Sofonias",3],[36,"Ageu",2],[37,"Zacarias",14],[38,"Malaquias",4],[39,"Mateus",28],[40,"Marcos",16],[41,"Lucas",24],[42,"Jo&atilde;o",21],[43,"Atos",28],[44,"Romanos",16],[45,"1 Cor&iacute;ntios",16],[46,"2 Cor&iacute;ntios",13],[47,"Gálatas",6],[48,"Ef&eacute;sios",6],[49,"Filipenses",4],[50,"Colossenses",4],[51,"1 Tessalonicenses",5],[52,"2 Tessalonicenses",3],[53,"1 Tim&oacute;teo",6],[54,"2 Tim&oacute;teo",4],[55,"Tito",3],[56,"Filemom",1],[57,"Hebreus",13],[58,"Tiago",5],[59,"1 Pedro",5],[60,"2 Pedro",3],[61,"1 Jo&atilde;o",3],[62,"2 Jo&atilde;o",1],[63,"3 Jo&atilde;o",1],[64,"Judas",1],[65,"Apocalipse",22]];
+	[0,"G&ecirc;nesis",50],[1,"&ecirc;xodo",40],[2,"Lev&iacute;tico",27],[3,"N&uacute;meros",36],[4,"Deuteron&ocirc;mio",34],[5,"Josu&eacute;",24],[6,"Ju&iacute;zes",21],[7,"Rute",4],[8,"1 Samuel",31],[9,"2 Samuel",24],[10,"1 Reis",22],[11,"2 Reis",25],[12,"1 Cr&ocirc;nicas",29],[13,"2 Cr&ocirc;nicas",36],[14,"Esdras",10],[15,"Neemias",13],[16,"Ester",10],[17,"J&oacute;",42],[18,"Salmos",150],[19,"Prov&eacute;rbios",31],[20,"Eclesiastes",12],[21,"Cânticos",8],[22,"Isa&iacute;as",66],[23,"Jeremias",52],[24,"Lamentaç&otilde;es de Jeremias",5],[25,"Ezequiel",48],[26,"Daniel",12],[27,"Os&eacute;ias",14],[28,"Joel",3],[29,"Am&oacute;s",9],[30,"Obadias",1],[31,"Jonas",4],[32,"Miqu&eacute;ias",7],[33,"Naum",3],[34,"Habacuque",3],[35,"Sofonias",3],[36,"Ageu",2],[37,"Zacarias",14],[38,"Malaquias",4],[39,"Mateus",28],[40,"Marcos",16],[41,"Lucas",24],[42,"Jo&atilde;o",21],[43,"Atos",28],[44,"Romanos",16],[45,"1 Cor&iacute;ntios",16],[46,"2 Cor&iacute;ntios",13],[47,"Gálatas",6],[48,"Ef&eacute;sios",6],[49,"Filipenses",4],[50,"Colossenses",4],[51,"1 Tessalonicenses",5],[52,"2 Tessalonicenses",3],[53,"1 Tim&oacute;teo",6],[54,"2 Tim&oacute;teo",4],[55,"Tito",3],[56,"Filemom",1],[57,"Hebreus",13],[58,"Tiago",5],[59,"1 Pedro",5],[60,"2 Pedro",3],[61,"1 Jo&atilde;o",3],[62,"2 Jo&atilde;o",1],[63,"3 Jo&atilde;o",1],[64,"Judas",1],[65,"Apocalipse",22]];
 
 var json_marked = [];
 
@@ -38,29 +32,29 @@ var shelf=false;
 		$(document).ready(function(e) {
 			
 			shelf = Snap("#shelf");
-			var bible = Snap.load("img/shelf_pt_br.svg", 
+			var bible = Snap.load("images/shelf_pt_br.svg", 
 				function ( loadedFragment ) {                                                shelf.append( loadedFragment ); 
 					var gs = shelf.selectAll('text');
 					gs.forEach(function(el) {
 						//console.log(el);
 						//console.log(el.attr('id'), el.innerHTML);
-						el.click(function() {
+						el.click(function() { 
 							getChapters( (Number(this.attr('id').substring(4))-1) );
 						});
 					});	
 					
 					var ws = window.screen.width;
 					var hs = window.screen.height;
-					
-					ws *= ( ws < 550  )?3:1;
-					hs *= ( ws < 680  )?3:2.5;;
+					console.log(ws, hs);
+					//ws *= ( ws < 550  )?3:1;
+					//hs *= ( ws < 680  )?3:2.5;;
 								
 					//if ( isMobile() ) alert ("width: "+ws+" height: "+hs);
 										
 					shelf.attr({
 					  //viewBox: "0 0 "+(ws)+" "+(hs),
-					  width: ws,
-					  height: hs
+					  width: (ws*0.9),
+					  height: (hs*1)
 					});				
 					
 					});
@@ -145,9 +139,6 @@ var shelf=false;
 			closeNav();
 		}
 		
-		/* Vamos pagar pra ver
-		 */
-		  
 		function getBibleAux (lang) {
 			var url = "json/"+lang+".json"; 
 			var jqxhr = $.getJSON(url, function(data) {
@@ -208,13 +199,13 @@ var shelf=false;
 			olchptrs += "<ol>";
 			olchptrs += "<center><br><br>";
 			
-			olchptrs += (chapter>0)?"<img onclick='getVerses("+book+", "+(chapter-1)+")' src='img/e-book-with-left-arrow.png' class='img-verse-action' />&nbsp;&nbsp;":"";
+			olchptrs += (chapter>0)?"<img onclick='getVerses("+book+", "+(chapter-1)+")' src='images/e-book-with-left-arrow.png' class='img-verse-action' />&nbsp;&nbsp;":"";
 			
-			olchptrs += "<img onclick='getShelf()' src='img/library_books_shelf.png' class='img-verse-action' />&nbsp;&nbsp;";
+			olchptrs += "<img onclick='getShelf()' src='images/library_books_shelf.png' class='img-verse-action' />&nbsp;&nbsp;";
 			
-			olchptrs += "<img onclick='getChapters("+book+")' src='img/book.png' class='img-verse-action' />&nbsp;&nbsp;";
+			olchptrs += "<img onclick='getChapters("+book+")' src='images/book.png' class='img-verse-action' />&nbsp;&nbsp;";
 			
-			olchptrs += ((chapter+1)<json_sel_book.chapters)?"<img onclick='getVerses("+book+", "+(chapter+1)+")' src='img/e-book-with-right-arrow.jpg' class='img-verse-action' />":"";
+			olchptrs += ((chapter+1)<json_sel_book.chapters)?"<img onclick='getVerses("+book+", "+(chapter+1)+")' src='images/e-book-with-right-arrow.jpg' class='img-verse-action' />":"";
 			
 			olchptrs += "</center>";
 			
@@ -231,8 +222,9 @@ var shelf=false;
 			var olchptrs = "<center><h1>"+json_sel_book.name+"</h1><h3></h3></center>";
 			for (i=1; i <= json_sel_book.chapters; i++ )
 				olchptrs += "<span id='olbook"+i+"' class='numberCircle' onclick='getVerses("+index+","+(i-1)+")'>"+(i)+"</span>";
-				olchptrs += "<br><br><center><img onclick='getShelf()' src='img/library_books_shelf.png' class='arrows_read'  /></center>";
+				olchptrs += "<br><br><center><img onclick='getShelf()' 				src='images/library_books_shelf.png' class='arrows_read'  /></center>";
 				hideAllDivs();
+				
 				$('#content-chapter').html(olchptrs);
 				$('#content-chapter').show();
 				if ( json_sel_book.chapter )
@@ -272,7 +264,7 @@ var shelf=false;
 			
 			 
 			if ( img.src.indexOf("plus")>1 ) {
-				img.src="img/cancel.jpg";
+				img.src="images/cancel.jpg";
 				visible = true;
 				$("#panel").html(action);
 				var menulang =  $("#language").html().replace(/changeSource/g,'getBibleAux');
@@ -285,7 +277,7 @@ var shelf=false;
 				$('#panel').show();
 			}
 			else {
-				img.src= "img/plus.png";
+				img.src= "images/plus.png";
 				$('#panel').hide();
 			}
 		}
@@ -333,7 +325,7 @@ var shelf=false;
 					
 				}
 			});
-			elem('menu-verse').src="img/plus.png";
+			elem('menu-verse').src="images/plus.png";
 			$("#panel").slideToggle("slow");
 		}	
 		
@@ -345,7 +337,7 @@ var shelf=false;
 					$(this).html( text );	
 				}
 			});
-			elem('menu-verse').src="img/plus.png";
+			elem('menu-verse').src="images/plus.png";
 			$("#panel").slideToggle("slow");
 		}	
 		function openNav() {
